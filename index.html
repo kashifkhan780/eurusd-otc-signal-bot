@@ -37,6 +37,7 @@ button{
 <button onclick="signal()">Generate Signal</button>
 
 <div id="result">Waiting...</div>
+  <div id="countdown">Next Signal In: 60</div>
 
 <script>
 
@@ -45,7 +46,19 @@ let d=new Date();
 document.getElementById("time").innerHTML=d.toLocaleTimeString();
 }
 setInterval(clock,1000);
-clock();
+  
+clock();let count = 60;
+
+setInterval(function(){
+  count--;
+
+  if(count < 0){
+    count = 60;
+  }
+
+  document.getElementById("countdown").innerHTML =
+    "Next Signal In: " + count;
+},1000);
 
 function signal(){
 let s=Math.random()>0.5?"🟢 UP":"🔴 DOWN";
