@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EUR USD OTC Signal Bot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUR/USD OTC Signal Bot</title>
 
 <style>
 body{
@@ -10,29 +11,24 @@ background:#111827;
 color:white;
 font-family:Arial,sans-serif;
 text-align:center;
+margin:0;
 padding:20px;
 }
 
 .box{
 background:#1f2937;
 padding:15px;
-border-radius:15px;
 margin:15px auto;
+border-radius:15px;
 max-width:350px;
 }
 
-button{
-background:#16a34a;
-color:white;
-padding:15px 30px;
-font-size:20px;
-border:none;
-border-radius:12px;
-cursor:pointer;
+h1{
+font-size:28px;
 }
 
 #time{
-font-size:30px;
+font-size:28px;
 font-weight:bold;
 }
 
@@ -44,10 +40,20 @@ color:yellow;
 #result{
 font-size:40px;
 font-weight:bold;
-margin-top:20px;
+margin-top:15px;
 }
-</style>
 
+button{
+background:#16a34a;
+color:white;
+font-size:20px;
+padding:15px;
+width:100%;
+border:none;
+border-radius:10px;
+}
+
+</style>
 </head>
 
 <body>
@@ -60,12 +66,16 @@ margin-top:20px;
 
 <div class="box">
 <div id="countdown">Next Signal: 60</div>
+</div><div class="box">
+
+<button onclick="signal()">
+Generate Signal
+</button>
+
+<div id="result">
+Waiting...
 </div>
 
-<div class="box">
-<button onclick="signal()">Generate Signal</button>
-
-<div id="result">Waiting...</div>
 </div>
 
 <script>
@@ -74,6 +84,7 @@ function clock(){
 let d=new Date();
 document.getElementById("time").innerHTML=d.toLocaleTimeString();
 }
+
 setInterval(clock,1000);
 clock();
 
@@ -87,18 +98,18 @@ if(count<0){
 count=60;
 }
 
-document.getElementById("countdown").innerHTML="Next Signal: "+count;
+document.getElementById("countdown").innerHTML=
+"Next Signal: "+count;
 
 },1000);
 
 function signal(){
-let s=Math.random()>0.5?"🟢 UP":"🔴 DOWN";
+
+let s=Math.random()>0.5 ? "🟢 UP" : "🔴 DOWN";
 
 document.getElementById("result").innerHTML=s;
 
-}
-
-</script>
+}</script>
 
 </body>
 </html>
