@@ -2,20 +2,56 @@
 <html>
 <head>
 <title>EUR USD OTC Signal Bot</title>
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#111;
+  color:white;
+}
+button{
+  padding:15px 30px;
+  font-size:20px;
+  background:green;
+  color:white;
+  border:none;
+  border-radius:10px;
+}
+#time{
+  font-size:24px;
+  margin:20px;
+}
+#result{
+  font-size:35px;
+  margin-top:20px;
+}
+</style>
 </head>
+
 <body>
 
 <h1>EUR USD OTC Signal Bot</h1>
 
+<div id="time"></div>
+
 <button onclick="signal()">Generate Signal</button>
 
-<p id="result">Signal will appear here...</p>
+<div id="result">Waiting...</div>
 
 <script>
-function signal() {
-  let s = Math.random() > 0.5 ? "🟢 UP" : "🔴 DOWN";
-  document.getElementById("result").innerHTML = s;
+
+function clock(){
+let d=new Date();
+document.getElementById("time").innerHTML=d.toLocaleTimeString();
 }
+setInterval(clock,1000);
+clock();
+
+function signal(){
+let s=Math.random()>0.5?"🟢 UP":"🔴 DOWN";
+document.getElementById("result").innerHTML=s;
+}
+
 </script>
 
 </body>
