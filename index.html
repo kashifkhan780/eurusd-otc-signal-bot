@@ -97,14 +97,17 @@ count--;
 if(count<0){
 count=60;
 }
-
+document.querySelector("button").disabled=(count!==0);
 document.getElementById("countdown").innerHTML=
 "Next Signal: "+count;
 
 },1000);
 
 function signal(){
-
+if(count!==0){
+alert("0 سیکنڈ کا انتظار کریں");
+return;
+}
 let s=Math.random()>0.5 ? "🟢 UP" : "🔴 DOWN";
 
 document.getElementById("result").innerHTML=s;
