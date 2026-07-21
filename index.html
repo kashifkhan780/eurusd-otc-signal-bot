@@ -3,14 +3,20 @@
 <head>
 <title>EUR USD OTC Signal Bot</title>
 </head>
-
 <body>
 
 <h1>EUR USD OTC Signal Bot</h1>
 
-<button>Generate Signal</button>
+<button onclick="signal()">Generate Signal</button>
 
-<p>Signal will appear here...</p>
+<p id="result">Signal will appear here...</p>
+
+<script>
+function signal() {
+  let s = Math.random() > 0.5 ? "🟢 UP" : "🔴 DOWN";
+  document.getElementById("result").innerHTML = s;
+}
+</script>
 
 </body>
 </html>
