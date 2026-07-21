@@ -92,7 +92,10 @@ document.getElementById("countdown").innerHTML="Next Signal: "+count;
 },1000);
 
 function signal(){
-
+if(count>0){
+alert("Please wait until timer reaches 0");
+return;
+}
 let s=Math.random()>0.5?"🟢 UP":"🔴 DOWN";
 
 document.getElementById("result").innerHTML=s;
